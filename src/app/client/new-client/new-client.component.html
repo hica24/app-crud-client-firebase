@@ -1,0 +1,39 @@
+<div class="col-12">
+  <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseBasic">
+    <i class="fa fa-user-plus"></i>
+    Nuevo
+  </button>
+  <hr>
+  <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+    <div class="well well-lg card card-block card-header">
+      <form class="example-form" [formGroup]="form">
+        <div class="row">
+          <div class="col-6 form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
+          </div>
+          <div class="col-6 form-group">
+            <label>Apellidos</label>
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="lastName">
+          </div>
+          <div class="col-6 form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="text" class="form-control" placeholder="Fecha de nacimiento" placement="top" bsDatepicker
+              [maxDate]="maxDate" formControlName="birthdate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+          </div>
+          <div class="col-6 form-group">
+            <button type="button" class="btn btn-outline-primary">
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
