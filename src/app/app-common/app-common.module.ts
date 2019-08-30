@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppCommonComponent } from './app-common.component';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { AppFooterComponent } from './app-footer/app-footer.component';
+import { AppNavbarComponent } from './component/app-navbar/app-navbar.component';
+import { AppFooterComponent } from './component/app-footer/app-footer.component';
+import { ErrorMessagesComponent } from './component/error-messages/error-messages.component';
+import { ClientService } from './services/client.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    AppCommonComponent,
     AppNavbarComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    ErrorMessagesComponent
   ],
-  exports:[
+  providers: [
+    ClientService
+  ],
+  exports: [
     AppNavbarComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    ErrorMessagesComponent
   ]
 })
 export class AppCommonModule { }

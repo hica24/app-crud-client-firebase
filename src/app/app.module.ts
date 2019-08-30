@@ -7,6 +7,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppCommonModule } from './app-common/app-common.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,12 +20,12 @@ import { environment } from '../environments/environment';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
     AppCommonModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),

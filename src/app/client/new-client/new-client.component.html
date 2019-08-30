@@ -1,5 +1,5 @@
 <div class="col-12">
-  <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+  <button type="button" class="btn btn-dark" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
     aria-controls="collapseBasic">
     <i class="fa fa-user-plus"></i>
     Nuevo
@@ -7,28 +7,39 @@
   <hr>
   <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
     <div class="well well-lg card card-block card-header">
-      <form class="example-form" [formGroup]="form">
+      <form class="form-client" [formGroup]="form">
         <div class="row">
-          <div class="col-6 form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
+          <div class="col-md-6 form-group">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': formControl['name'].invalid && (formControl['name'].dirty || formControl['name'].touched)}"  placeholder="Nombre" formControlName="name">
+            <app-error-messages [control]="formControl['name']" ></app-error-messages>
           </div>
-          <div class="col-6 form-group">
-            <label>Apellidos</label>
-            <input type="text" class="form-control" placeholder="Apellidos" formControlName="lastName">
+          <div class="col-md-6 form-group">
+            <label>Apellidos:</label>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': formControl['lastName'].invalid && (formControl['lastName'].dirty || formControl['lastName'].touched)}" placeholder="Apellidos" formControlName="lastName">
+            <app-error-messages [control]="formControl['lastName']" ></app-error-messages>
           </div>
-          <div class="col-6 form-group">
-            <label>Fecha de nacimiento</label>
-            <input type="text" class="form-control" placeholder="Fecha de nacimiento" placement="top" bsDatepicker
-              [maxDate]="maxDate" formControlName="birthdate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+          <div class="col-md-3 form-group">
+            <label>Fecha de Nacimiento:</label>
+            <input type="text" class="form-control" placeholder="Fecha de nacimiento" placement="bottom"
+              formControlName="birthdate" [bsConfig]="{isAnimated: true , dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+              <app-error-messages [control]="formControl['birthdate']" ></app-error-messages>
           </div>
-          <div class="col-6 form-group">
-            <button type="button" class="btn btn-outline-primary">
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-outline-primary">
-              Guardar
-            </button>
+          <div class="col-md-3 form-group">
+            <label>Edad:</label>
+            <input type="text" class="form-control"  [ngClass]="{'is-invalid': formControl['age'].invalid && (formControl['age'].dirty || formControl['age'].touched)}" placeholder="Edad" formControlName="age">
+            <app-error-messages [control]="formControl['age']" ></app-error-messages>
+          </div>
+          <div class="col-md-6 form-group d-flex align-items-end justify-content-end">
+            <div>
+              <button type="button" class="btn btn-outline-secondary">
+                Cancelar
+              </button>
+              <button type="button" (click)="onClickSave()" class="btn btn-outline-primary ml-1">
+                Guardar
+              </button>
+            </div>
+
           </div>
         </div>
       </form>
