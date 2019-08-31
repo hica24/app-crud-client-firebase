@@ -1,3 +1,46 @@
-<div class="col-12">
-  <p>Lista de Clientes</p>
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Lista de Clientes</li>
+    </ol>
+  </nav>
+
+
+  <div>
+    <div class="table-responsive">
+      <table class="table">
+        <!-- <caption>List of users</caption> -->
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td class="align-middle">{{ client.name }}</td>
+            <td class="align-middle">{{ client.lastName }}</td>
+            <td class="align-middle">{{ client.age }}</td>
+            <td class="align-middle">{{ client.birthdate }}</td>
+            <td class="align-middle">
+              <button type="button" class="btn btn-light" (click)="onClickEdit(itclientem)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button type="button" class="btn btn-light ml-1" (click)="onClickDelete(client)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
 </div>

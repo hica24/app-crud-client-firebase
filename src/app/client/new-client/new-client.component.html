@@ -1,5 +1,5 @@
 <div class="col-12">
-  <button type="button" class="btn btn-dark" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+  <button type="button" class="btn btn-dark" (click)="onClickCollapsed()" [attr.aria-expanded]="!isCollapsed"
     aria-controls="collapseBasic">
     <i class="fa fa-user-plus"></i>
     Nuevo
@@ -32,7 +32,7 @@
           </div>
           <div class="col-md-6 form-group d-flex align-items-end justify-content-end">
             <div>
-              <button type="button" class="btn btn-outline-secondary">
+              <button type="button" (click)="onClickCancel()" class="btn btn-outline-secondary">
                 Cancelar
               </button>
               <button type="button" (click)="onClickSave()" class="btn btn-outline-primary ml-1">

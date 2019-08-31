@@ -14,7 +14,7 @@ import * as alertify from 'alertifyjs';
   styleUrls: ['./new-client.component.scss']
 })
 export class NewClientComponent implements OnInit {
-  public isCollapsed = false;
+  public isCollapsed = true;
   client: Client;
   form: FormGroup;
   constructor(private fb: FormBuilder,
@@ -24,17 +24,28 @@ export class NewClientComponent implements OnInit {
 
   ngOnInit() {
   }
+  onClickCollapsed(){
+    this.isCollapsed = !this.isCollapsed;
+    if(this.isCollapsed){
+      this.form.reset();
+    }
+  }
+  onClickCancel(){
+    this.isCollapsed = true;
+    this.form.reset();
+  }
   onClickSave() {
-    debugger;
     this.form.markAsTouched();
     if (this.form.valid) {
       const data = this.form.value;
       data.birthdate = moment(data.birthdate).format('DD/MM/YYYY');
       if (!this.client) {
-        this.clientsService.createClient(data).then(() => {
+        this.clientsService.addClient(data).then(() => {
           this.form.reset();
           this.isCollapsed = true;
-          alertify.success('Success message');
+          alertify.success('Guardado Exitoso.');
+        }).catch(()=>{
+          alertify.error('Error al Guardar.');
         });
       } else {
        
