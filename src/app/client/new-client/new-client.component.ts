@@ -18,41 +18,60 @@ export class NewClientComponent implements OnInit {
   client: Client;
   form: FormGroup;
   constructor(private fb: FormBuilder,
-    private clientsService: ClientService,) {
+    private clientsService: ClientService, ) {
     this.createform();
   }
 
   ngOnInit() {
+    if (this.client) {
+      this.form.patchValue(this.client);
+      this.form.controls.birthdate.setValue(new Date(moment(this.client.birthdate, 'DD/MM/YYYY').format()));
+    }
   }
-  onClickCollapsed(){
+  onClickCollapsed() {
     this.isCollapsed = !this.isCollapsed;
-    if(this.isCollapsed){
+    if (this.isCollapsed) {
       this.form.reset();
     }
   }
-  onClickCancel(){
+  onClickCancel() {
     this.isCollapsed = true;
     this.form.reset();
   }
   onClickSave() {
     this.form.markAsTouched();
     if (this.form.valid) {
-      const data = this.form.value;
+      const data: Client = this.form.value;
       data.birthdate = moment(data.birthdate).format('DD/MM/YYYY');
       if (!this.client) {
         this.clientsService.addClient(data).then(() => {
-          this.form.reset();
+          this.resetForm();
           this.isCollapsed = true;
           alertify.success('Guardado Exitoso.');
-        }).catch(()=>{
-          alertify.error('Error al Guardar.');
+        }).catch(() => {
+          this.resetForm();
+          alertify.error('Guardado Fallido.');
         });
       } else {
-       
+        debugger;
+        data.id = this.client.id;
+        this.clientsService.updateClient(data).then(() => {
+          this.resetForm();
+          this.isCollapsed = true;
+          this.client = null;
+          alertify.success('Actualización Exitoso.');
+
+        }).catch(() => {
+          this.resetForm();
+          alertify.success('Actualización Fallida.');
+        });
       }
     }
   }
-
+  resetForm(){
+    this.form.reset();
+    this.form.controls.birthdate.setValue(new Date());
+  }
   get formControl() { return this.form.controls; }
   private createform() {
     this.form = this.fb.group({

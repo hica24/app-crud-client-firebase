@@ -11,7 +11,7 @@
             <app-new-client></app-new-client>
           </div>
           <div class="mt-2">
-            <app-list-client></app-list-client>
+            <app-list-client (clientSelect)="onEditClientSelect($event)"></app-list-client>
           </div>
         </div>
       </div>

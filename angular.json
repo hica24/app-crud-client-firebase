@@ -35,7 +35,8 @@
               "./node_modules/alertifyjs/build/css/alertify.min.css"      
             ],
             "scripts": [
-              "./node_modules/alertifyjs/build/alertify.min.js"
+              "./node_modules/alertifyjs/build/alertify.min.js",
+              "./node_modules/mathjs/dist/math.js"
             ]
           },
           "configurations": {
