@@ -1,0 +1,34 @@
+<div class="table-responsive">
+    <table class="table">
+      <!-- <caption>List of users</caption> -->
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Fecha Nacimiento</th>
+          <th scope="col" *ngIf="activeFieldDeath">Fecha Muerte</th>
+          <th scope="col" *ngIf="!activeFieldDeath" ></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients; let i = index">
+          <th scope="row" class="align-middle">{{ i + 1 }}</th>
+          <td class="align-middle">{{ client.name }}</td>
+          <td class="align-middle">{{ client.lastName }}</td>
+          <td class="align-middle">{{ client.age }}</td>
+          <td class="align-middle">{{ client.birthdate }}</td>
+          <td class="align-middle" *ngIf="activeFieldDeath">{{ getDateDeath(client.birthdate) }}</td>
+          <td class="align-middle" *ngIf="!activeFieldDeath">
+            <button type="button" class="btn btn-light" (click)="onClickEdit(client)">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-light ml-1" (click)="onClickDelete(client)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

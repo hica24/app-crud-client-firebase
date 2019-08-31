@@ -16,28 +16,33 @@ import { NewClientComponent } from './client/new-client/new-client.component';
 import { ListClientComponent } from './client/list-client/list-client.component';
 import { ClientComponent } from './client/client.component';
 import { environment } from '../environments/environment';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { TableClientComponent } from './client/table-client/table-client.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    CommonModule,
-    AppCommonModule,
-    AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    CollapseModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule,
-
-  ],
-  declarations: [
-    AppComponent,
-    ClientComponent,
-    ListClientComponent,
-    NewClientComponent,
-  ],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      ReactiveFormsModule,
+      CommonModule,
+      AppCommonModule,
+      AngularFirestoreModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      CollapseModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      BrowserAnimationsModule
+   ],
+   declarations: [
+      AppComponent,
+      ClientComponent,
+      ListClientComponent,
+      NewClientComponent,
+      TableClientComponent,
+      AnalysisComponent
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

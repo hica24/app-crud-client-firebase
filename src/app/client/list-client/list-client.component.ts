@@ -33,9 +33,6 @@ export class ListClientComponent implements OnInit {
     });
   }
 
-
-
-
   private getAllClient() {
     this.clientsService.allClients().subscribe((result: Client[]) => {
       this.clients = result;
