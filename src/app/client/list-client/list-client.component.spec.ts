@@ -4,6 +4,10 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ListClientComponent } from './list-client.component';
+import { TableClientComponent } from '../table-client/table-client.component';
+import { AppCommonModule } from '../../app-common/app-common.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 describe('ListClientComponent', () => {
   let component: ListClientComponent;
@@ -11,9 +15,11 @@ describe('ListClientComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListClientComponent ]
+      declarations: [ListClientComponent, TableClientComponent],
+      imports: [AppCommonModule, ReactiveFormsModule,
+        CommonModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

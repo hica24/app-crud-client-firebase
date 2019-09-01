@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ClientService {
-  private clientsCollection: AngularFirestoreCollection<Client>;
+  clientsCollection: AngularFirestoreCollection<Client>;
   clients: Observable<Client[]>;
   constructor(private db: AngularFirestore) {
     this.clientsCollection = this.db.collection<Client>('Client');

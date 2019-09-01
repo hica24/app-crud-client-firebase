@@ -4,6 +4,10 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AnalysisComponent } from './analysis.component';
+import { ClientService } from '../app-common/services/client.service';
+import { TableClientComponent } from '../client/table-client/table-client.component';
+import { AppCommonModule } from '../app-common/app-common.module';
+import { CollapseModule } from 'ngx-bootstrap';
 
 describe('AnalysisComponent', () => {
   let component: AnalysisComponent;
@@ -11,9 +15,11 @@ describe('AnalysisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnalysisComponent ]
+      declarations: [AnalysisComponent, TableClientComponent],
+      imports: [AppCommonModule],
+      providers: [ClientService],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

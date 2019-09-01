@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from '@angular/fire';
-import { BsDatepickerModule } from 'ngx-bootstrap';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppCommonModule } from './app-common/app-common.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,23 +10,22 @@ import { AppComponent } from './app.component';
 import { NewClientComponent } from './client/new-client/new-client.component';
 import { ListClientComponent } from './client/list-client/list-client.component';
 import { ClientComponent } from './client/client.component';
-import { environment } from '../environments/environment';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { TableClientComponent } from './client/table-client/table-client.component';
+import { CollapseModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    imports: [
       BrowserModule,
       AppRoutingModule,
+      AppCommonModule,
+      CollapseModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      BrowserAnimationsModule,
       HttpClientModule,
       ReactiveFormsModule,
       CommonModule,
-      AppCommonModule,
-      AngularFirestoreModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig),
-      CollapseModule.forRoot(),
-      BsDatepickerModule.forRoot(),
-      BrowserAnimationsModule
    ],
    declarations: [
       AppComponent,
