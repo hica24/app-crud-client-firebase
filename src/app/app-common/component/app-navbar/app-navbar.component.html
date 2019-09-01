@@ -1,32 +1,31 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg shadow">
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg shadow">
   <div class="container">
     <a class="navbar-brand" href="#">
       <i class="fa fa-user-circle"></i>
     </a>
-    <div class="d-flex justify-content-end">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/client">
-              <i class="fa fa-list"></i>
-              Clientes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/analysis">
-              <i class="fa fa-address-book"></i>
-              Proyección
-            </a>
-          </li>
+    <button class="navbar-toggler" type="button" (click)="onClickNavbar()" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngStyle]="{'display': active ? 'inline':''}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" (click)="onClickNavbar()" routerLink="/client">
+            <i class="fa fa-list"></i>
+            Clientes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onClickNavbar()" routerLink="/analysis">
+            <i class="fa fa-address-book"></i>
+            Proyección
+          </a>
+        </li>
 
 
-        </ul>
-      </div>
+      </ul>
     </div>
+
 
   </div>
 </nav>

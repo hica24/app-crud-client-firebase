@@ -1,8 +1,8 @@
 {
-  "name": "angular-io-example",
+  "name": "angular-crud-firebase",
   "version": "1.0.0",
   "private": true,
-  "description": "Example project from an angular.io guide.",
+  "description": "Formulario Entrada, Formulario Salida y Pagina de Proyección.",
   "scripts": {
     "lint": "tslint ./src/**/*.ts -t verbose",
     "start": "ng serve",

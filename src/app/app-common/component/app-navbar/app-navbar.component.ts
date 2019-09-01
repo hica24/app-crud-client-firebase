@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-navbar.component.scss']
 })
 export class AppNavbarComponent implements OnInit {
-
+  active: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  onClickNavbar(){
+    this.active = !this.active;
+  }
 }
