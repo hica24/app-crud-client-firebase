@@ -34,7 +34,7 @@
     "firebase": "^6.5.0",
     "font-awesome": "^4.7.0",
     "mathjs": "^6.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ngx-bootstrap": "^4.3.0",
     "rxjs": "6.1.0",
     "rxjs-compat": "6.1.0",
